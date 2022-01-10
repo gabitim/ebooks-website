@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchBooks } from '../../reducers/books';
 import { RootState } from '../../reducers/store'; 
-import BrandingHeader from '../header/branding-header';
+import PageHeader from '../header/page-header';
 import BookTable from '../table/book/book-table';
 
 const MainPage = (): JSX.Element => {
@@ -18,7 +18,7 @@ const MainPage = (): JSX.Element => {
  
   return (
     <div>
-      <BrandingHeader title='All Ebooks'/>
+      <PageHeader title='All Ebooks'/>
       {error && <h3>Error</h3>}
       <BookTable 
         books={books.value}

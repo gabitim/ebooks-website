@@ -19,12 +19,11 @@ interface HeaderProps {
   small?: boolean;
 }
 
-const BrandingHeader = (props: HeaderProps): JSX.Element => {
+const PageHeader = (props: HeaderProps): JSX.Element => {
   const classes = useStyles();
   
   return (
-    <div className={classes.wrapper}>
-      {/* <img src='./logo.png' alt='logo'></img> */}
+    <div className={classes.wrapper}>      
       <Typography variant={props.small ? 'h6' : 'h5'}>
         {props.title}
       </Typography>
@@ -32,4 +31,4 @@ const BrandingHeader = (props: HeaderProps): JSX.Element => {
   );
 };
 
-export default BrandingHeader;
+export default PageHeader;
