@@ -3,14 +3,14 @@ import React, { FunctionComponent, PropsWithChildren } from 'react';
 import { IconButton, TableRow, Tooltip } from '@material-ui/core';
 import { Delete, Edit } from '@material-ui/icons';
 
-import { Book } from '../../../api';
+import { BookDto } from '../../../api';
 import { sortByString } from '../../../util/sort-util';
 import TableButtonCell from '../common/button-cell';
 import TableCell from '../common/cell';
 import TableSearchFallbackRow from '../common/search-fallback-row';
 
 interface Props {
-  books: Book[];
+  books: BookDto[];
   onEdit: () => void; // TODO
   onDelete: () => void; // TODO
 }
@@ -27,22 +27,22 @@ const BookTableContent: FunctionComponent<Props> = (props: PropsWithChildren<Pro
       />
 
       {
-        sortByString(books, b => b.titlu ?? '').map(book => {return(
+        sortByString(books, b => b.title ?? '').map(book => {return(
           <TableRow key={book.isbn}>
             <TableCell >
               {book.isbn}            
             </TableCell>
             <TableCell >
-              {book.titlu}
+              {book.title}
             </TableCell>
             <TableCell >
-              {book.editura}
+              {book.publishingHouse}
             </TableCell>
             <TableCell >
-              {book.an_publicare}
+              {book.publishingYear}
             </TableCell>
             <TableCell >
-              {book.gen_literar}
+              {book.genre}
             </TableCell>
             <TableButtonCell>
               <Tooltip title='Edit Book'>

@@ -1,5 +1,5 @@
 import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit';
-import { BookControllerApi, Book } from '../api';
+import { BookControllerApi, BookDto } from '../api';
 import { ApiError } from '../interfaces/error';
 import { apiExec, hasFailed } from '../util/api-util';
 import { RootDispatch, RootState } from './store';
@@ -8,10 +8,10 @@ const BOOKS_ERROR = 'BOOKS_ERROR';
 const SET_BOOKS = 'SET_BOOKS';
 
 type BooksErrorPayload = ApiError;
-type SetBooksPayload = Book[];
+type SetBooksPayload = BookDto[];
 
 interface State {
-  value: Book[];
+  value: BookDto[];
   error?: ApiError;
   loaded: boolean;
 }
@@ -49,7 +49,7 @@ const fetchBooks = (force?: boolean) => {
       return;
     }
     
-    const response = await apiExec(BookControllerApi, api => api.getBooks());
+    const response = await apiExec(BookControllerApi, api => api.getBooks111());
     if (hasFailed(response)) {
       dispatch(bookError(response.error));
     }

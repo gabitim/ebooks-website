@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 
 import { TableHead } from '@material-ui/core';
 
-import { Book } from '../../../api';
+import { BookDto } from '../../../api';
 import { propertyOf } from '../../../interfaces/helpers';
 import { capitalize } from '../../../util/string-util';
 import TableHeaderRow from '../common/header-row';
@@ -13,11 +13,11 @@ const BookTableHeader: FunctionComponent = (): JSX.Element => {
   return (
     <TableHead>
       <TableHeaderRow>
-        <TableColumn type='default' align='left' title={capitalize(propertyOf<Book>('isbn'))} />
-        <TableColumn type='default' align='left' title={capitalize(propertyOf<Book>('titlu'))} />
-        <TableColumn type='default' align='left' title={capitalize(propertyOf<Book>('editura'))} />
-        <TableColumn type='default' align='left' title={capitalize(propertyOf<Book>('an_publicare'))} />
-        <TableColumn type='default' align='left' title={capitalize(propertyOf<Book>('gen_literar'))} />
+        <TableColumn type='default' align='left' title={capitalize(propertyOf<BookDto>('isbn'))} />
+        <TableColumn type='default' align='left' title={capitalize(propertyOf<BookDto>('title'))} />
+        <TableColumn type='default' align='left' title={capitalize(propertyOf<BookDto>('publishingHouse'))} />
+        <TableColumn type='default' align='left' title={capitalize(propertyOf<BookDto>('publishingYear'))} />
+        <TableColumn type='default' align='left' title={capitalize(propertyOf<BookDto>('genre'))} />
         
         <TableColumn type='min' align='right' />
         <TableColumn type='min' align='right' />
